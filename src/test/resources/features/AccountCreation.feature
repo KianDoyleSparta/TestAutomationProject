@@ -12,4 +12,5 @@ Feature: Create Account
     And I input my email as "jossiedee123@gmail.com"
     And I input my password as "JohnDoe!23"
     And I confirm my password as "JohnDoe!23"
+    #use a datatable here please and thank you ^^ - convert to class from table and such and such
     Then I should have successfully created an account
