@@ -7,10 +7,15 @@ Feature: Create Account
   @Happy
   Scenario: Create account with valid information
     Given I am on the account creation page
-    When I input my first name as "John"
-    And I input my last name as "Doe"
-    And I input my email as "jossiedee123@gmail.com"
-    And I input my password as "JohnDoe!23"
-    And I confirm my password as "JohnDoe!23"
-    #use a datatable here please and thank you ^^ - convert to class from table and such and such
+    When I create an account with the following information:
+      | firstName | lastName | email                       | password |
+      | John      | Doe      | johndoe@example.com         | password1 |
     Then I should have successfully created an account
+
+  @Sad
+  Scenario: Create account with invalid information
+    Given I am on the account creation page
+    When I create an account with the following information:
+      | firstName | lastName | email | password |
+      | John      | Doe      | ----  | -        |
+    Then I should see a creation error message

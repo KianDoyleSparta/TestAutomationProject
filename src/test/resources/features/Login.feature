@@ -8,6 +8,22 @@ Feature: Login
   Scenario: Login with valid credentials
     Given I am on the login page
     And I have an account
-    When I input my email as "jossiedee123@gmail.com"
-    And I input my password as "JohnDoe!23"
+    When I input the following information:
+      | email                       | password |
+      | johndoe@example.com         | password1 |
     Then I should be logged in
+
+  @Sad
+  Scenario: Login with invalid credentials
+    Given I am on the login page
+    And I have an account
+    When I input the following information:
+      | email                       | password |
+      | johndoe@example.com         | ----- |
+    Then I should see a login error message
+
+  @Alternative
+  Scenario: Forgotten password
+    Given I am on the login page
+    When I click forgot password
+    Then I should be taken to the forgotten password page
