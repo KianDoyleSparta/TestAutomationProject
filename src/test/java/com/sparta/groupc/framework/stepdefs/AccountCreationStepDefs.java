@@ -16,6 +16,7 @@ public class AccountCreationStepDefs {
 
     @Then("I should have successfully created an account")
     public void iShouldHaveSuccessfullyCreatedAnAccount() {
+//    https://magento.softwaretestingboard.com/customer/account/
     }
 
     @Then("I should see a creation error message")
