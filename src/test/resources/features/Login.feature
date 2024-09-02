@@ -9,7 +9,7 @@ Feature: Login
     Given I am on the login page
     And I have an account
     When I input the following information:
-      | email                       | password |
+      | email             | password    |
       | kd@kd.com         | Password!Kd |
     Then I should be logged in
 
