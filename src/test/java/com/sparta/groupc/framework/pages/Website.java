@@ -5,17 +5,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriver;
 
 public class Website {
-    private WebDriver webDriver;
-//    private HomePage homePage;
+    private final WebDriver webDriver;
+    private final LoginPage loginPage;
 
     public Website (WebDriver webDriver) {
         this.webDriver = webDriver;
-//        homePage = new HomePage(webDriver);
+        loginPage = new LoginPage(webDriver);
 }
 
-//    public HomePage getHomePage() {
-//        return homePage;
-//    }
+    public LoginPage getLoginPage() {
+        return loginPage;
+    }
 
     public String getCurrentUrl() {
         return webDriver.getCurrentUrl();

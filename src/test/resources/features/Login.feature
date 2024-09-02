@@ -10,7 +10,7 @@ Feature: Login
     And I have an account
     When I input the following information:
       | email                       | password |
-      | johndoe@example.com         | password1 |
+      | kd@kd.com         | Password!Kd |
     Then I should be logged in
 
   @Sad
