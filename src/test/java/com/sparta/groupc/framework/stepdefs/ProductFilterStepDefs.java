@@ -4,6 +4,7 @@ import com.sparta.groupc.framework.pages.ProductFilterPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.hamcrest.MatcherAssert;
@@ -15,7 +16,7 @@ import java.util.Map;
 
 public class ProductFilterStepDefs {
     private ProductFilterPage productFilterPage;
-    private final String BASE_URL = "https://yourwebsite.com/products";
+    private final String BASE_URL = "https://magento.softwaretestingboard.com/";
 
     @Before
     public void setup() throws IOException {
@@ -29,6 +30,10 @@ public class ProductFilterStepDefs {
         TestSetup.stopService();
     }
 
+    @Given("I am on the products page")
+    public void iAmOnTheProductsPage() {
+        productFilterPage = new ProductFilterPage(TestSetup.getWebsite(BASE_URL).getWebDriver());
+    }
 
     @When("I select the following category:")
     public void iSelectTheFollowingCategory(DataTable table) {
@@ -52,6 +57,10 @@ public class ProductFilterStepDefs {
     @Then("I should see a no products found message")
     public void iShouldSeeANoProductsFoundMessage() {
         MatcherAssert.assertThat(productFilterPage.getNoProductsMessage(), Matchers.containsString("No products found"));
+    }
+
+    @Given("I have applied some filters")
+    public void iHaveAppliedSomeFilters() {
     }
 
     @When("I click the reset filters button")
