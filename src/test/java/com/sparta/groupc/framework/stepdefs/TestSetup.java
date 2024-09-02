@@ -17,7 +17,7 @@ import java.time.Duration;
 import static java.time.temporal.ChronoUnit.SECONDS;
 
 public class TestSetup {
-    private static final String DRIVER_LOCATION = "src/test/resources/chromedriver.exe";
+    private static final String DRIVER_LOCATION = "src/test/resources/chromedriver";
     private static ChromeDriverService service;
     private static WebDriver webDriver;
 
