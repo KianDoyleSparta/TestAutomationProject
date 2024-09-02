@@ -4,18 +4,18 @@ Feature: Create Account
   As an interested person
   I wish to be able to create an account
 
-  @Happy
+  @happy
   Scenario: Create account with valid information
     Given I am on the account creation page
     When I create an account with the following information:
-      | firstName | lastName | email                       | password |
-      | John      | Doe      | johndoe@example.com         | password1 |
+      | firstName | lastName | email              | password        | password_confirmation |
+      | Group     | C        | groupc@groupc.com  | Password!GroupC | Password!GroupC       |
     Then I should have successfully created an account
 
-  @Sad
-  Scenario: Create account with invalid information
+  @sad
+  Scenario: Create account with duplicate information
     Given I am on the account creation page
     When I create an account with the following information:
-      | firstName | lastName | email | password |
-      | John      | Doe      | ----  | -        |
-    Then I should see a creation error message
+      | firstName | lastName | email              | password        | password_confirmation |
+      | Group     | C        | groupc@groupc.com  | Password!GroupC | Password!GroupC       |
+    Then I should see a duplicate email error message
