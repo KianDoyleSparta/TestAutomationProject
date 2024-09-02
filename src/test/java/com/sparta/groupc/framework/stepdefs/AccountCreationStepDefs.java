@@ -29,7 +29,7 @@ public class AccountCreationStepDefs {
     @After
     public void afterEach () {
         TestSetup.createWebDriver();
-        TestSetup.stopService();
+//        TestSetup.stopService();
     }
 
     @Given("I am on the account creation page")

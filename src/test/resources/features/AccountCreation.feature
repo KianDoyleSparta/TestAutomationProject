@@ -4,7 +4,7 @@ Feature: Create Account
   As an interested person
   I wish to be able to create an account
 
-  @Happy
+  @happy
   Scenario: Create account with valid information
     Given I am on the account creation page
     When I create an account with the following information:
@@ -12,7 +12,7 @@ Feature: Create Account
       | Group     | C        | groupc@groupc.com  | Password!GroupC | Password!GroupC       |
     Then I should have successfully created an account
 
-  @Sad
+  @sad
   Scenario: Create account with duplicate information
     Given I am on the account creation page
     When I create an account with the following information:
