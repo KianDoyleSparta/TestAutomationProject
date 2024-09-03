@@ -14,7 +14,7 @@ The functionality tested in this project is as follows:
 #### Create Account Functionality 
 - Create account with valid credentials 
 - Create account with invalid credentials
-### Purchase Functionality 
+#### Purchase Functionality 
 - Clicking checkout takes you to checkout page 
 - Successfully confirming shipping details
 - Unsuccessfully confirming shipping details 
