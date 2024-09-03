@@ -22,7 +22,7 @@ Feature: Login
       | johndoe@example.com         | ----- |
     Then I should see a login error message
 
-  @alternate
+  @alternative
   Scenario: Forgotten password
     Given I am on the login page
     When I click forgot password
