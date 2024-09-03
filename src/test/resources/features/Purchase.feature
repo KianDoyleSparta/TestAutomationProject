@@ -24,7 +24,7 @@ Feature: Purchase
     Then I should be given a shipping error message
 
   @happy
-  Scenario: Successfully confirming payment with valid details
+  Scenario: Successfully confirming payment
     Given I am on the payment page
     When I click place order
     Then I should be sent to a confirmation page
