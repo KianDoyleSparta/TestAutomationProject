@@ -12,12 +12,11 @@ public class Website {
 
     public Website(WebDriver webDriver) {
         this.webDriver = webDriver;
-        loginPage = new LoginPage(webDriver);
-        productPage = new ProductPage(webDriver);
+        this.loginPage = new LoginPage(webDriver);
+        this.productPage = new ProductPage(webDriver);
+        this.createAccountPage = new CreateAccountPage(webDriver);
+        this.purchasePage = new PurchasePage(webDriver);
     }
-        createAccountPage = new CreateAccountPage(webDriver);
-        purchasePage = new PurchasePage(webDriver);
-}
 
     public LoginPage getLoginPage() {
         return loginPage;
@@ -27,20 +26,20 @@ public class Website {
         return productPage;
     }
 
-    public WebDriver getWebDriver() {
-        return webDriver;
-    }
-
-    public void selectFirstProduct() {
-        webDriver.findElement(By.cssSelector(".product-item-link")).click(); 
-
     public CreateAccountPage getCreateAccountPage() {
         return createAccountPage;
     }
 
     public PurchasePage getPurchasePage() {
         return purchasePage;
+    }
 
+    public WebDriver getWebDriver() {
+        return webDriver;
+    }
+
+    public void selectFirstProduct() {
+        webDriver.findElement(By.cssSelector(".product-item-link")).click();
     }
 
     public String getCurrentUrl() {
