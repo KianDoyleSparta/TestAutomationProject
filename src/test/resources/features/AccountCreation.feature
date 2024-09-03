@@ -9,7 +9,7 @@ Feature: Create Account
     Given I am on the account creation page
     When I create an account with the following information:
       | firstName | lastName | email              | password        | password_confirmation |
-      | Group     | C        | groupc@groupc.com  | Password!GroupC | Password!GroupC       |
+      | Group     | C        | groupc123456@groupc.com  | Password!GroupC | Password!GroupC       |
     Then I should have successfully created an account
 
   @sad
@@ -17,5 +17,5 @@ Feature: Create Account
     Given I am on the account creation page
     When I create an account with the following information:
       | firstName | lastName | email              | password        | password_confirmation |
-      | Group     | C        | groupc@groupc.com  | Password!GroupC | Password!GroupC       |
+      | Group     | C        | groupc123456@groupc.com  | Password!GroupC | Password!GroupC       |
     Then I should see a duplicate email error message
