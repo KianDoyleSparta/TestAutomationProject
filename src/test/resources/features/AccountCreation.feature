@@ -13,6 +13,7 @@ Feature: Create Account
     Then I should have successfully created an account
 
   @sad
+  Scenario: Create account with invalid information
   Scenario: Create account with duplicate information
     Given I am on the account creation page
     When I create an account with the following information:
