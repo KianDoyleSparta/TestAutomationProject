@@ -23,23 +23,23 @@ public class AddToCartStepDefs {
     @Before
     public void setup() throws IOException {
         TestSetup.startChromeService();
-        TestSetup.createWebDriver();  // Initialize WebDriver
-        driver = TestSetup.webDriver; // Access static WebDriver from TestSetup
+        TestSetup.createWebDriver();
+        driver = TestSetup.webDriver;
 
         if (driver == null) {
             throw new IllegalStateException("WebDriver could not be initialized");
         }
 
         website = new Website(driver);
-        productPage = new ProductPage(driver); // Ensure ProductPage is properly initialized
+        productPage = new ProductPage(driver);
     }
 
     @After
     public void tearDown() {
         if (driver != null) {
-            TestSetup.quitWebDriver(); // Quit WebDriver using TestSetup
+            TestSetup.quitWebDriver();
         }
-        TestSetup.stopService(); // Stop the ChromeDriver service
+        TestSetup.stopService();
     }
 
     @Given("I am on the product details page")
@@ -52,8 +52,8 @@ public class AddToCartStepDefs {
     public void iSelectTheFollowingProductOptions(DataTable dataTable) {
         List<Map<String, String>> options = dataTable.asMaps(String.class, String.class);
         for (Map<String, String> option : options) {
-            productPage.selectSize(option.get("Size"));
-            productPage.selectColor(option.get("Color"));
+            productPage.selectSize();
+            productPage.selectColor();
         }
     }
 
@@ -127,7 +127,7 @@ public class AddToCartStepDefs {
 
 //    @When("I navigate to the shopping cart page")
 //    public void iNavigateToTheShoppingCartPage() {
-//        driver.get("https://magento.softwaretestingboard.com/shopping-cart-page-url"); // Replace with actual URL
+//        driver.get("https://magento.softwaretestingboard.com/shopping-cart-page-url");
 //    }
 //
 //    @And("I click on the {string} link for a product")
