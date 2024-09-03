@@ -7,12 +7,17 @@ public class Website {
     private final WebDriver webDriver;
     private final LoginPage loginPage;
     private final ProductPage productPage;
+    private final CreateAccountPage createAccountPage;
+    private final PurchasePage purchasePage;
 
     public Website(WebDriver webDriver) {
         this.webDriver = webDriver;
         loginPage = new LoginPage(webDriver);
         productPage = new ProductPage(webDriver);
     }
+        createAccountPage = new CreateAccountPage(webDriver);
+        purchasePage = new PurchasePage(webDriver);
+}
 
     public LoginPage getLoginPage() {
         return loginPage;
@@ -27,7 +32,15 @@ public class Website {
     }
 
     public void selectFirstProduct() {
-        webDriver.findElement(By.cssSelector(".product-item-link")).click(); // Adjust selector as needed
+        webDriver.findElement(By.cssSelector(".product-item-link")).click(); 
+
+    public CreateAccountPage getCreateAccountPage() {
+        return createAccountPage;
+    }
+
+    public PurchasePage getPurchasePage() {
+        return purchasePage;
+
     }
 
     public String getCurrentUrl() {

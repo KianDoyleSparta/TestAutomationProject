@@ -28,7 +28,7 @@ public class LoginStepDefs {
     @After
     public void afterEach () {
         TestSetup.createWebDriver();
-        TestSetup.stopService();
+//        TestSetup.stopService();
     }
 
     @Given("I am on the login page")
