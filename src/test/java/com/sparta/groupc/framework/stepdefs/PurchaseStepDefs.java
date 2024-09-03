@@ -84,6 +84,7 @@ public class PurchaseStepDefs {
 
     @Then("I should be given a shipping error message")
     public void iShouldBeGivenAShippingErrorMessage() {
+        MatcherAssert.assertThat(website.getPurchasePage().getErrorMessage(), Matchers.containsString("Please enter a valid email address"));
     }
 
     @Given("I am on the payment page")

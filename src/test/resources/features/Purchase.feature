@@ -11,16 +11,16 @@ Feature: Purchase
   Scenario: Successfully confirming shipping with valid details
     Given I am on the shipping page
     When I enter these shipping details:
-      | email | firstname | lastname | address | city | state | zip | country | phone |
-      |       |           |          |         |      |       |     |         |       |
+      | email                    | firstname | lastname   | address                    | city     | state    | zip   | country        | phone       |
+      | vortex.cyan@bluemist.xyz | Elara     | Starbourne | 47 Nebula Crescent Apt 305 | Colorado | Luminara | 90210 | United States  | 12345123456 |
     Then I should be taken to the payment page
 
   @sad
   Scenario: Unsuccessfully confirming payment and shipping with invalid details
     Given I am on the shipping page
     When I enter these shipping details:
-      | email | firstname | lastname | address | city | state | zip | country | phone |
-      |       |           |          |         |      |       |     |         |       |
+      | email  | firstname | lastname   | address                    | city     | state    | zip   | country        | phone       |
+      | vortex | Elara     | Starbourne | 47 Nebula Crescent Apt 305 | Colorado | Luminara | 90210 | United States  | 12345123456 |
     Then I should be given a shipping error message
 
   @happy
