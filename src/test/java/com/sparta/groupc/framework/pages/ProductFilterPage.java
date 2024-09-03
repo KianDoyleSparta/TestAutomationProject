@@ -2,6 +2,10 @@ package com.sparta.groupc.framework.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProductFilterPage {
     private final WebDriver webDriver;
@@ -14,6 +18,7 @@ public class ProductFilterPage {
     private final By noProductsMessage = new By.ByClassName("no-products");
     private final By productsCategory = new By.ByClassName("product-category");
     private final By productCount = new By.ByClassName("product-count");
+    private final By productPrice = new By.ByClassName("product-price");
 
     public ProductFilterPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -46,4 +51,11 @@ public class ProductFilterPage {
         return Integer.parseInt(webDriver.findElement(productCount).getText());
     }
 
+    // New method to get the list of product prices
+    public List<Integer> getProductPrices() {
+        List<WebElement> priceElements = webDriver.findElements(productPrice);
+        return priceElements.stream()
+                .map(element -> Integer.parseInt(element.getText().replace("$", "").replace(",", "")))
+                .collect(Collectors.toList());
+    }
 }

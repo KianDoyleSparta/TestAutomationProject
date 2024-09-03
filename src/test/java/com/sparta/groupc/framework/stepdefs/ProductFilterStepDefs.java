@@ -38,8 +38,8 @@ public class ProductFilterStepDefs {
     @When("I select the following category:")
     public void iSelectTheFollowingCategory(DataTable table) {
         List<Map<String, String>> categoryList = table.asMaps(String.class, String.class);
-        Map<String, String> row = categoryList.get(0);
-        productFilterPage.selectCategory(row.get("category"));
+        String category = categoryList.get(0).get("category");
+        productFilterPage.selectCategory(category);
     }
 
     @Then("I should see products in the {string} category")
@@ -50,8 +50,8 @@ public class ProductFilterStepDefs {
     @When("I select an invalid filter:")
     public void iSelectAnInvalidFilter(DataTable table) {
         List<Map<String, String>> filterList = table.asMaps(String.class, String.class);
-        Map<String, String> row = filterList.get(0);
-        productFilterPage.selectCategory(row.get("category"));
+        String invalidCategory = filterList.get(0).get("category");
+        productFilterPage.selectCategory(invalidCategory);
     }
 
     @Then("I should see a no products found message")
@@ -61,6 +61,7 @@ public class ProductFilterStepDefs {
 
     @Given("I have applied some filters")
     public void iHaveAppliedSomeFilters() {
+        // Implement this step as necessary
     }
 
     @When("I click the reset filters button")
@@ -71,5 +72,22 @@ public class ProductFilterStepDefs {
     @Then("I should see all products without any filters applied")
     public void iShouldSeeAllProductsWithoutAnyFiltersApplied() {
         MatcherAssert.assertThat(productFilterPage.getProductCount(), Matchers.greaterThan(0));
+    }
+
+    @When("I select a price range:")
+    public void iSelectAPriceRange(DataTable table) {
+        List<Map<String, String>> priceRangeList = table.asMaps(String.class, String.class);
+        String minPrice = priceRangeList.get(0).get("min_price");
+        String maxPrice = priceRangeList.get(0).get("max_price");
+        productFilterPage.selectPriceRange(minPrice, maxPrice);
+    }
+
+    @Then("I should see products priced between $50 and $200")
+    public void iShouldSeeProductsPricedBetweenAnd() {
+        List<Integer> prices = productFilterPage.getProductPrices();
+        MatcherAssert.assertThat(prices, Matchers.allOf(
+                Matchers.everyItem(Matchers.greaterThanOrEqualTo(50)),
+                Matchers.everyItem(Matchers.lessThanOrEqualTo(200))
+        ));
     }
 }
