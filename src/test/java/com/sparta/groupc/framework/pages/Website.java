@@ -8,11 +8,13 @@ public class Website {
     private final WebDriver webDriver;
     private final LoginPage loginPage;
     private final CreateAccountPage createAccountPage;
+    private final PurchasePage purchasePage;
 
     public Website (WebDriver webDriver) {
         this.webDriver = webDriver;
         loginPage = new LoginPage(webDriver);
         createAccountPage = new CreateAccountPage(webDriver);
+        purchasePage = new PurchasePage(webDriver);
 }
 
     public LoginPage getLoginPage() {
@@ -21,6 +23,10 @@ public class Website {
 
     public CreateAccountPage getCreateAccountPage() {
         return createAccountPage;
+    }
+
+    public PurchasePage getPurchasePage() {
+        return purchasePage;
     }
 
     public String getCurrentUrl() {
