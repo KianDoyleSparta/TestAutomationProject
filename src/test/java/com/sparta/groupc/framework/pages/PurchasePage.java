@@ -23,6 +23,7 @@ public class PurchasePage {
     public static final By zipPostalCodeInput = By.id("S2Q13N1");
     public static final By countryDropdown = By.id("UH50JQM");
     public static final By phoneNumberInput = By.id("KL92BJ3");
+    public static final By errorMessage = new By.ByClassName("mage-error");
 
     public static final By fixedShippingMethodRadio = By.cssSelector("input[value='flatrate_flatrate']");
     public static final By nextButton = By.cssSelector("button[data-role='opc-continue']");
@@ -99,6 +100,10 @@ public class PurchasePage {
 
     public void clickNextButton() {
         webDriver.findElement(nextButton).click();
+    }
+
+    public String getErrorMessage() {
+        return webDriver.findElement(errorMessage).getText();
     }
 
     public void clickPlaceOrderButton() {
